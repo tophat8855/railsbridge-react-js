@@ -49,5 +49,20 @@ ListStore = {
       item.completed = itemData.completed;
       notifyComponents();
     });
+  },
+
+  deleteItem: function(itemId) {
+    var item = findItemById(itemId);
+
+    var deleteRequest = $.ajax({
+      type: 'DELETE',
+      url: "https://listalous.herokuapp.com/lists/tophat8855/items/" + itemId,
+    }).done(function(itemData) {
+      var index = items.indexOf(item);
+      if (index > -1) {
+        items.splice(index, 1);
+      }
+      notifyComponents();
+    });
   }
 };
