@@ -25,6 +25,17 @@ ListStore = {
       notifyComponents();
     });
   },
-  addItem: function(itemDescription) {},
+
+  addItem: function(itemDescription) {
+    var creationRequestion = $.ajax({
+      type: 'POST',
+      url: "http://listalous.herokuapp.com/lists/tophat8855/items",
+      data: { description: itemDescription, completed: false}
+    }).done(function(itemDataFromServer) {
+      items.push(itemDataFromServer);
+      notifyComponents();
+    });
+  },
+  
   toggleCompleteness: function(itemId) {}
 };
