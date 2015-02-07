@@ -55,7 +55,7 @@
         return (
           {items: [
             {description: 'a gallon of milk',  completed: true, id: 1},
-            {description: 'a stick of butter', completed: false, id: 2}
+            {description: 'five dozen eggs', completed: false, id: 2}
           ]}
         )
       },
@@ -81,5 +81,6 @@
 
     React.render(<CreationForm />, document.getElementById('form-container') )
     React.render(<List />, document.getElementById('list-container') )
+    ListStore.loadItems()
   </script>
 </body>
